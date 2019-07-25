@@ -15,6 +15,14 @@ app.get('/', (req, res) => {
     res.json(result);
 });
 
+app.get('/menu', (req, res) => {
+    let menu = menuDB.menuRealm.objects('menu')
+        .sorted('name', true);
+    res.json({
+        data: Array.from(menu)
+    })
+});
+
 app.post('/menu', (req, res) => {
     const name = req.body['name'];
     const restaurant = req.body['restaurant'];

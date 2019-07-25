@@ -33,4 +33,16 @@ function attachMenuEvent() {
 
 $(function () {
     console.log('밥밥밥밥 배고파배고파');
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/menu',
+        success: function (result) {
+            for (let menu of result.data) {
+                console.log('메뉴: ' + menu.name);
+            }
+        },
+        error: function (result) {
+            console.log('실패: ' + result);
+        }
+    })
 });
