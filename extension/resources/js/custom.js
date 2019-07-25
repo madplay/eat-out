@@ -13,14 +13,14 @@ if (shouldPrepareMenu) {
 function attachMenuEvent() {
     $('#submitMenu').click(function () {
         $.ajax({
-            type: 'POST',
+            type: 'GET',
             url: 'http://localhost:3000',
             data: $('form.menu_form').serialize(),
             success: function (result) {
-                alert('success~');
+                alert('success: ' + result.data);
             },
             error: function (result) {
-                alert('error~');
+                alert('error: ' + result);
             }
         })
     });
