@@ -12,10 +12,11 @@ if (shouldPrepareMenu) {
 
 function attachMenuEvent() {
     $('#submitMenu').click(function () {
+        const data = $('form.menu_form').serialize();
         $.ajax({
-            type: 'GET',
-            url: 'http://localhost:3000',
-            data: $('form.menu_form').serialize(),
+            type: 'POST',
+            url: 'http://localhost:3000/menu',
+            data: data,
             success: function (result) {
                 alert('success: ' + result.data);
             },
